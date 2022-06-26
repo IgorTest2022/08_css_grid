@@ -1,0 +1,616 @@
+@import 'fonts.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $mainColor;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1290px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.btn-reset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.header {
+  &-container {
+    background: $mainColor;
+  }
+  &-logo {
+    margin-right: 140px;
+  }
+  &-content {
+    position: relative;
+    padding-top: 26px;
+    padding-bottom: 21px;
+    align-items: center;
+  }
+  &-nav {
+    margin-right: auto;
+  }
+}
+
+.open {
+
+}
+
+.form {
+  &-search {
+    visibility: hidden;
+    opacity: 0;
+  }
+  &-search.active {
+    visibility: visible;
+    opacity: 1;
+    animation: searchOpen 2s ease;
+  }
+  &-input {
+    position: absolute;
+    max-width: 169px;
+    background-color: transparent;
+    border: none;
+    top: 33px;
+    right: 60px;
+    transition: box-shadow 1s ease;
+    transition: opacity 1s ease;
+  }
+  &-input:focus {
+      outline: none;
+      box-shadow: 1px 3px 0px -1px rgba(233, 233, 233, 1);
+    }
+  &-button--close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+  }
+}
+
+@keyframes searchOpen {
+  0% {
+    transform: translate(200px, -45px);
+  }
+  100% {
+    transform: translate(135px, -45px);
+  }
+}
+
+.nav {
+  &-link {
+    font-family: 'TTFirsNeue';
+    font-weight: 400;
+    line-height: 21px;
+    color: #FFFFFF;
+  }
+  &-item:not(:last-child) {
+    margin-right: 79px;
+  }
+}
+
+.laptop {
+  &-container {
+    background-color: #4A4A4A;
+  }
+}
+
+.nav {
+  &-laptop {
+    display: none;
+    padding: 12px 0;
+  }
+}
+
+.hero {
+  &-content {
+    padding-top: 40px;
+    padding-bottom: 26px;
+    grid-template-columns: 630px 1fr;
+    grid-template-rows: 343px 300px;
+    gap: 30px;
+  }
+  &-left {
+    position: relative;
+    max-height: 630px;
+    background: url("../images/hero_main_foto.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-row: 1/ span 2;
+    text-align: right;
+    padding-bottom: 60px;
+  }
+  &-right__top {
+    /* grid-column-start: 3;
+    grid-column-end: 6;
+    min-width: 630px; */
+  }
+  &-right__bottom {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  &-title {
+    margin-bottom: 20px;
+    @include title;
+    line-height: 104%;
+    color: #202020;
+  }
+  &-hashtag {
+    display: inline-block;
+    position: relative;
+    padding: 7px 15px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    z-index: 1;
+    top: 17px;
+    right: 15px;
+  }
+  &-hashtag::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333333;
+    z-index: -1;
+  }
+  &-block {
+    padding-top: 376px;
+    padding-left: 58px;
+    text-align: left;
+  }
+  &-descr {
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+  }
+  &-subtitle {
+    margin-bottom: 19px;
+    font-family: 'TTFirsNeue';
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 37px;
+    color: #FFFFFF;
+  }
+  &-btn {
+    display: inline-block;
+    padding: 16px 25px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #FFFFFF;
+    background-color: $btnColor;
+  }
+  &-picture {
+    line-height: 0;
+    font-size: 0;
+  }
+}
+
+.about {
+  &-container {
+    background: $mainColor;
+  }
+  &-content {
+    padding-bottom: 70px;
+  }
+  &-left {
+    max-width: 630px;
+    margin-right: 30px;
+  }
+  &-title {
+    padding-top: 30px;
+    margin-bottom: 5px;
+    @include title;
+    line-height: 31px;
+    color: #FFFFFF;
+  }
+  &-descr {
+    font-weight: 400;
+    line-height: 28px;
+    color: #CACACA;
+  }
+  &-img {
+    margin-bottom: 25px;
+    width: 630px;
+    height: 255px;
+    background-image: url('../images/about_foto.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+&-subtitle {
+    margin-bottom: 16px;
+    font-family: 'TTFirsNeue';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 18px;
+    color: #FFFFFF;
+  }
+&-input {
+    width: 470px;
+    height: 50px;
+    margin-right: 30px;
+    padding-left: 19px;
+  }
+&-btn {
+    padding: 15px 22px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #FFFFFF;
+    background: #FF6E30;
+  }
+}
+
+.projects {
+  &-content {
+    padding-top: 70px;
+  }
+  &-title {
+    margin-bottom: 12px;
+    line-height: 28px;
+    letter-spacing:1.4px;;
+  }
+  &-block {
+    grid-template-columns: 630px 630px;
+    grid-template-rows: 300px 300px;
+    gap: 30px;
+  }
+  &-column {
+    position: relative;
+  }
+  &-hashtag {
+    @include hashtag;
+    right: -98px;
+  }
+  &-hashtag1 {
+    @include hashtag;
+    right: -94px;
+  }
+  &-hashtag2 {
+    @include hashtag;
+    right: -90px;
+  }
+  &-hashtag3 {
+    @include hashtag;
+    left: -100px;
+  }
+  &-hashtag5 {
+    @include hashtag;
+    top: -63px;
+    left: 446px;
+  }
+
+  &-hashtag::before,
+  &-hashtag1::before,
+  &-hashtag2::before,
+  &-hashtag3::before,
+  &-hashtag5::before {
+    @include hashtagBefore;
+  }
+
+  &-background_1 {
+    min-height: 184px;
+    background-image: url('../images/projects_foto_1.jpg');
+  }
+  &-background_2 {
+    min-height: 184px;
+    background-image: url('../images/projects_foto_2.jpg');
+  }
+  &-background_3 {
+    min-height: 184px;
+    background-image: url('../images/projects_foto_3.jpg');
+  }
+  &-background_4 {
+    min-height: 184px;
+    background-image: url('../images/projects_foto_4.jpg');
+  }
+  &-background_5 {
+    min-height: 184px;
+    background-image: url('../images/projects_foto_5.jpg');
+  }
+  &-descr {
+    margin-bottom: 12px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  &-descr1 {
+    margin-bottom: 18px;
+  }
+  &-time {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    color: #999999;
+  }
+  &-item_2 {
+    position: relative;
+    background-image: url('../images/projects_main_foto.jpg');
+    color: #fff;
+  }
+  &-item_3 {
+    position: relative;
+    background-image: url('../images/projects_main_foto_2.jpg');
+    color: #fff;
+  }
+  &-item_4 {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  &-elem {
+
+    max-width: 52%;
+    padding-top: 25px;
+    padding-left: 31px;
+  }
+  &-subtitle {
+    @include title;
+    margin-bottom: 6px;
+    line-height: 24px;
+  }
+  &-btn {
+    display: inline-block;
+    padding: 14px 18px;
+    border: 3px solid $btnColor;
+    font-weight: 700;
+    line-height: 19px;
+    color: #FFFFFF;
+  }
+}
+
+.top {
+  &-left {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+.elem {
+  &-descr {
+    margin-bottom: 73px;
+  }
+}
+
+.contacts-block.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contacts {
+  &-content {
+    padding-bottom: 68px;
+  }
+  &-title {
+    margin-bottom: 20px;
+    padding-top: 70px;
+    letter-spacing: 1.4px;
+  }
+  &-left {
+    position: relative;
+    width: 850px;
+    min-height: 460px;
+    margin-right: 30px;
+  }
+  &-block {
+    position: absolute;
+    max-width: 410px;
+    height: 100%;
+    padding-top: 178px;
+    padding-left: 60px;
+    color: #fff;
+    background: rgba(32, 32, 32, 0.85);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 1s ease;
+    /* transition: opacity 1s ease; */
+  }
+  &-block2 {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.85);
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  &-right {
+    max-width: 410px;
+  }
+  &-form {
+    flex-direction: column;
+  }
+  &-subtitle {
+    margin-bottom: 4px;
+    font-family: 'TTFirsNeue';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 22px;
+  }
+  &-descr {
+    margin-bottom: 14px;
+    line-height: 22px;
+    color: #999999;
+  }
+  &-input {
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 23px;
+    background-color: #E9E9E9;
+    border: none;
+  }
+  &-input:focus {
+    outline-color: #FF6E30;
+  }
+  &-textarea {
+    height: 150px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-left: 23px;
+    resize: none;
+    background-color: #E9E9E9;
+    border: none;
+  }
+  &-textarea:focus {
+    outline-color: #FF6E30;
+  }
+  &-btn {
+    max-width: 125px;
+    padding: 15px 22px;
+    font-weight: 700;
+    line-height: 19px;
+    color: #FFFFFF;
+    background: #FF6E30;
+  }
+}
+
+.block {
+  &-title {
+    margin-bottom: 5px;
+    font-family: 'TTFirsNeue';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+  &-address {
+    font-style: normal;
+    line-height: 28px;
+    color: #CACACA;
+  }
+}
+
+[class*="ground-pane"] {
+  filter: grayscale(1);
+}
+
+.footer {
+  &-container {
+    background-color: #202020;;
+  }
+  &-content {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  &-left {
+     margin-right: 207px;
+  }
+  &-logo {
+    display: block;
+  }
+  &-center {
+    margin-right: auto;
+  }
+  &-descr {
+    font-family: 'TTFirsNeue';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #E9E9E9;
+  }
+  &-center {
+    max-width: 361px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #CACACA;
+  }
+  &-text {
+    color: #666666;
+  }
+  &-subtitle {
+    margin-bottom: 8px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #CACACA;
+  }
+  &-item:not(:last-child) {
+    margin-right: 21px;
+  }
+  &-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1300px) {
+  .container {
+    padding: 0 31px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    &-item:not(:last-child) {
+      margin-right: 33px;
+    }
+  }
+  .header {
+    &-logo {
+      margin-right: 82px;
+    }
+  }
+}
+
+
+@media (max-width: 992px) {
+  .header {
+    &-nav {
+      display: none;
+    }
+    &-content {
+      justify-content: space-between;
+    }
+  }
+  .nav {
+    &-laptop {
+      display: block;
+    }
+    &-list {
+      justify-content: space-between;
+    }
+  }
+}
